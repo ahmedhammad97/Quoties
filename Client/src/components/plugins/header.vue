@@ -46,7 +46,7 @@ export default {
   name: 'header',
   computed : {
     loggedIn(){
-      return true;
+      return this.$store.state.loggedIn;
     }
   }
 }

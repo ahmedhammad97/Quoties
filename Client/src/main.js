@@ -3,6 +3,7 @@ import BootstrapVue from "bootstrap-vue"
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Routes from './router/routes'
+import { store } from './store/store'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 
@@ -16,6 +17,7 @@ const router = new VueRouter({
 
 new Vue({
   el: '#app',
+  store : store,
   render: h => h(App),
   router : router
 })
