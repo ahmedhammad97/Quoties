@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import quotiesHeader from './components/plugins/header.vue'
-import quotiesFooter from './components/plugins/footer.vue'
+import quotiesHeader from './components/plugins/appHeader.vue'
+import quotiesFooter from './components/plugins/appFooter.vue'
 
 export default {
   name: 'app',

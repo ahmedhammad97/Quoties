@@ -2,7 +2,7 @@
   <footer>
     <center>
       <br />
-      <h5>All copyrights reserved © 2018 | Ahmed Hammad</h5>
+      <h6>All copyrights reserved © 2018 | Ahmed Hammad</h6>
       <p>For contact: hammad97official@gmail.com</p>
     </center>
   </footer>
@@ -12,7 +12,7 @@
 
 
 export default {
-  name: 'footer',
+  name: 'appFooter',
 
 }
 </script>

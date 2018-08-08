@@ -8,12 +8,13 @@
 
     <b-collapse is-nav id="nav_collapse">
 
-      <b-nav-form v-if="loggedIn">
-        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search for quotes.."/>
-      </b-nav-form>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
+
+        <b-nav-form v-if="loggedIn" v-on:submit="search">
+          <b-form-input size="sm" class="mr-sm-2" type="text" v-model="searchTerm" placeholder="Search for quotes.."/>
+        </b-nav-form>
 
         <b-navbar-nav>
           <b-nav-item><router-link to="/trending">Trending</router-link></b-nav-item>
@@ -43,15 +44,36 @@
 <script>
 
 export default {
-  name: 'header',
+  name: 'appHeader',
+  data(){
+    return{
+      searchTerm : ""
+    }
+  },
   computed : {
     loggedIn(){
       return this.$store.state.loggedIn;
+    }
+  },
+  methods : {
+    search(){
+      this.$router.push({ path: `/search/${this.searchTerm}` })
     }
   }
 }
 </script>
 
 <style>
+  a{
+    color: #757575;
+  }
+  a:hover{
+    text-decoration: none;
+    color: #424242;
+    transition: color 0.3s ease;
+  }
+  .form-control-sm{
+    border-radius: 15px;
+  }
 
 </style>

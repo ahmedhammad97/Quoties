@@ -1,6 +1,6 @@
 <template>
   <center>
-    <h1>Turn your Aha moment, into history record.</h1>
+    <h2>You searched for {{$route.params.term}}</h2>
   </center>
 </template>
 
@@ -8,10 +8,8 @@
 
 
 export default {
-  name: 'loggedOutHome',
-  components : {
+  name: 'search'
 
-  }
 }
 </script>
 
