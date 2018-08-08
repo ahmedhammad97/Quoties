@@ -1,16 +1,20 @@
 <template>
   <center>
-    <h1>Turn your Aha moments, into history record.</h1>
+    <h1>Trending</h1>
   </center>
 </template>
 
 <script>
 
-
 export default {
-  name: 'loggedOutHome',
+  name: 'Trending',
   components : {
 
+  },
+  data () {
+    return {
+
+    }
   }
 }
 </script>

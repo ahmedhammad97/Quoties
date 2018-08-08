@@ -4,7 +4,7 @@
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="#">Quoties</b-navbar-brand>
+    <router-link to="/"><b-navbar-brand title="Home">Quoties</b-navbar-brand></router-link>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -16,20 +16,20 @@
       <b-navbar-nav class="ml-auto">
 
         <b-navbar-nav>
-          <router-link to="/trending"><b-nav-item>Trending</b-nav-item></router-link>
+          <b-nav-item><router-link to="/trending">Trending</router-link></b-nav-item>
         </b-navbar-nav>
 
         <div v-if="loggedIn">
           <b-navbar-nav>
-            <router-link to="/profile"><b-nav-item>Profile</b-nav-item></router-link>
-            <router-link to="/logout"><b-nav-item>Logout</b-nav-item></router-link>
+            <b-nav-item><router-link to="/profile">Profile</router-link></b-nav-item>
+            <b-nav-item><router-link to="/logoutu">Logout</router-link></b-nav-item>
           </b-navbar-nav>
         </div>
 
         <div v-else>
           <b-navbar-nav>
-            <router-link to="/login"><b-nav-item>Login</b-nav-item></router-link>
-            <router-link to="/register"><b-nav-item>Register</b-nav-item></router-link>
+            <b-nav-item><router-link to="/login">Login</router-link></b-nav-item>
+            <b-nav-item><router-link to="/register">Register</router-link></b-nav-item>
           </b-navbar-nav>
         </div>
 

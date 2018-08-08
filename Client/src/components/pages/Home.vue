@@ -19,7 +19,9 @@ export default {
     }
   },
   computed : {
-    loggedIn : false
+    loggedIn(){
+      return false;
+    }
   }
 }
 </script>
