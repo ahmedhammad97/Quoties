@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Back-end for Quoties social media",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedhammad97/Quoties.git"
+  },
+  "keywords": [
+    "Quoties",
+    "Socila-media",
+    "quotes"
+  ],
+  "author": "Ahmed Hammad",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ahmedhammad97/Quoties/issues"
+  },
+  "homepage": "https://github.com/ahmedhammad97/Quoties#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  }
+}
