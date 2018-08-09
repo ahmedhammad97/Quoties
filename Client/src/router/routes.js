@@ -3,6 +3,7 @@ import Trending from '../components/pages/Trending.vue'
 import Search from '../components/pages/Search.vue'
 import Login from '../components/pages/Login.vue'
 import Register from '../components/pages/Register.vue'
+import Profile from '../components/pages/Profile.vue'
 
 export default [
   {
@@ -24,5 +25,10 @@ export default [
   {
     path : '/register',
     component : Register
+  },
+  {
+    path: '/profile/:username',
+    component: Profile
   }
+
 ]

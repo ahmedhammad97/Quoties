@@ -1,6 +1,12 @@
 <template>
-  <div class="trending">
-      <center><h2>Trending quotes right now...</h2></center><br /><br />
+  <div class="profile">
+    <div class="info">
+      <center>
+        <h2>{{this.$store.state.fullname}}</h2>
+      </center>
+    </div>
+    <br /><br />
+
     <ul>
       <li v-for="quote in quotes">
         <quote v-bind="quote"></quote><br />
@@ -13,7 +19,7 @@
 import quote from "../plugins/quote.vue"
 
 export default {
-  name: 'trending',
+  name: 'profile',
   components: {
     quote
   },
@@ -56,7 +62,7 @@ export default {
 </script>
 
 <style scoped>
-  .trending{
+  .profile{
     margin-top: 100px;
     color: white;
     margin-bottom: 100px;

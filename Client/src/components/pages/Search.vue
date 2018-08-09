@@ -3,7 +3,7 @@
       <center><h2>Search results for <i>{{this.$route.params.term}}</i></h2></center><br /><br />
     <ul>
       <li v-for="quote in quotes">
-        <quote v-bind:body="quote.body" v-bind:author="quote.author" v-bind:likes="quote.likes"></quote><br />
+        <quote v-bind="quote"></quote><br />
       </li>
     </ul>
   </div>
@@ -23,22 +23,30 @@ export default {
         {
           body : "Nothing is random .. it's just some calculations we don't understand",
           author : "Ahmed Hammad",
-          likes : 15
+          likes : 15,
+          username : "ahmedhammad97",
+          isLiked : true
         },
         {
           body : "Failures, are the steps of success's stairs",
           author : "Fathy Lantern",
-          likes : 21
+          likes : 21,
+          username : "ahmedhammad97",
+          isLiked : false
         },
         {
           body : "I think, therfore I am",
           author : "Rene Decerte",
-          likes : 17
+          likes : 17,
+          username : "Decarte",
+          isLiked : true
         },
         {
           body : "Say good or keep silent",
           author : "Prophet Mohammed",
-          likes : 5
+          likes : 5,
+          username : "Mohamed",
+          isLiked : false
         }
       ]
     }

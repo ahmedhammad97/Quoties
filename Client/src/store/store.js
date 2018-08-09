@@ -7,6 +7,9 @@ export const store = new Vuex.Store({
     strict: true,
     state: {
       loggedIn : true,
-      cookiesAlert : true
+      cookiesAlert : true,
+      username : "ahmedhammad97",
+      email : "hammad97official@gmail.com",
+      fullname : "Ahmed Hammad"
     }
 })

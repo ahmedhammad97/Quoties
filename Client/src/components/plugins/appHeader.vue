@@ -22,8 +22,8 @@
 
         <div v-if="loggedIn">
           <b-navbar-nav>
-            <b-nav-item><router-link to="/profile">Profile</router-link></b-nav-item>
-            <b-nav-item><router-link to="/logoutu">Logout</router-link></b-nav-item>
+            <b-nav-item><router-link :to="dynamicProfile">Profile</router-link></b-nav-item>
+            <b-nav-item v-on:click="logout">Logout</b-nav-item>
           </b-navbar-nav>
         </div>
 
@@ -53,11 +53,19 @@ export default {
   computed : {
     loggedIn(){
       return this.$store.state.loggedIn;
+    },
+    dynamicProfile(){
+      return "/profile/" + this.$store.state.username;
     }
   },
   methods : {
     search(){
       this.$router.push({ path: `/search/${this.searchTerm}` })
+    },
+    logout(){
+      this.$store.state.loggedIn = false;
+      this.$router.push({path: '/'});
+      //remove user data from store
     }
   }
 }

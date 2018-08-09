@@ -5,9 +5,9 @@
        &nbsp&nbsp<i class="fas fa-quote-right"></i><br /><br />
 
        <span class="toolbar">
-         {{likes}} <i class="fas fa-heart" title="like"></i> &nbsp&nbsp
-         <i class="fas fa-trash" title="delete" ></i> &nbsp&nbsp
-         <i class="fas fa-copy" title="copy"></i>
+         {{likes}} <i class="fas fa-heart" title="like" v-bind:style="{color : likeColor}" v-on:click="like">&nbsp&nbsp</i>
+         <i class="fas fa-trash" title="remove" v-if="owner" v-on:click="remove">&nbsp&nbsp</i>
+         <i class="fas fa-copy" title="copy" v-on:click="copy"></i>
        </span>
 
        <em>{{author}}</em><br />
@@ -21,10 +21,47 @@ export default {
   props : {
     body : String,
     likes : Number,
-    author : String
+    author : String,
+    username : String,
+    isLiked : Boolean
   },
-  methods: {
+  data(){
+    return{
+      liked : this.isLiked
+    }
+  },
+  computed: {
+    owner(){
+      return this.$store.state.username == this.username;
+    },
+    likeColor(){
+      return this.liked?"red":"white";
+    }
+  },
+  methods : {
+    like(){
+      if(!this.liked){
+      //request an addition to the server
+      this.likes++;
 
+      //recolor
+      this.likeColor = "red";
+
+      this.liked = true;
+      }
+    },
+    remove(){
+
+    },
+    copy(){
+      this.$copyText(this.body).then(function (e) {
+        alert('Copied')
+        console.log(e)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
+      })
+    }
   }
 }
 </script>
