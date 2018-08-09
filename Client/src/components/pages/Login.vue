@@ -14,16 +14,17 @@
         <button v-on:click="facebookLogin" id="facebook"><i class="fab fa-facebook-f"></i> &nbsp&nbspLogin with Facebook</button>
       </center>
     </div>
+    <cookiesAlert></cookiesAlert>
   </div>
 </template>
 
 <script>
-
+import cookiesAlert from '../plugins/cookies.vue'
 
 export default {
   name: 'login',
   components : {
-
+    cookiesAlert
   },
   data () {
     return {

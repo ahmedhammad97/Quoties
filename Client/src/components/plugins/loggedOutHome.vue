@@ -4,7 +4,7 @@
     <span class="quote" id="quote2"><i class="fas fa-quote-left"></i> Everything happens for a reason <i class="fas fa-quote-right"></i></span>
 
     <center>
-    <h1>Turn your Ahaa moment <font-awesome-icon icon="lightbulb" />, into history record.</h1>
+    <h1>Turn your Ahaa moment <i class="fas fa-lightbulb"></i>, into history record.</h1>
     <br />
     <form v-on:submit="search">
       <input type="text" name="" placeholder="Search for quotes..." v-model="searchTerm">
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-
 
 export default {
   name: 'loggedOutHome',
@@ -75,7 +74,7 @@ export default {
   }
   #quote4{
     right: 200px;
-    margin-top: 100px;
+    margin-top: 150px;
     transform: rotate(-10deg);
   }
 
