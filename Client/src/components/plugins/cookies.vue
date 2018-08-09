@@ -1,5 +1,5 @@
 <template>
-  <div class="cookie" v-show="open">
+  <div class="cookie" v-if="open">
     <p>It seems like your browser is hungry, by using our website, you allow us to feed it some cookies <i class="fas fa-cookie-bite"></i></p>
     <button v-on:click="close">x</button>
   </div>
@@ -9,14 +9,14 @@
 
 export default {
   name: 'cookie',
-  data(){
-    return{
-      open : true
+  computed : {
+    open(){
+      return this.$store.state.cookiesAlert
     }
   },
   methods: {
     close(){
-      this.open = false;
+      this.$store.state.cookiesAlert = false;
     }
   }
 }

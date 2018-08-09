@@ -57,14 +57,14 @@ export default {
   }
 
   #quote1{
-    top: 150px;
+    top: -70px;
     margin-left: 70px;
     transform: rotate(-5deg);
   }
   #quote2{
     transform: rotate(20deg);
     right: 25px;
-    top : 150px;
+    top : -40px;
   }
   #quote3{
     margin-top: 60px;
