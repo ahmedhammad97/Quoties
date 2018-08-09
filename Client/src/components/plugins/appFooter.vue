@@ -24,6 +24,6 @@ export default {
     background-color: #212121;
     position: absolute;
     bottom: 0;
-    color: #e0e0e0;
+    color: #f8f9fa;
   }
 </style>

@@ -1,11 +1,13 @@
 <template>
-  <loggedInHome v-if="loggedIn"></loggedInHome>
-  <loggedOutHome v-else></loggedOutHome>
+  <div id="home">
+    <loggedInHome v-if="loggedIn"></loggedInHome>
+    <loggedOutHome v-else></loggedOutHome>
+  </div>
 </template>
 
 <script>
-import loggedInHome from './loggedInHome.vue'
-import loggedOutHome from './loggedOutHome.vue'
+import loggedInHome from '../plugins/loggedInHome.vue'
+import loggedOutHome from '../plugins/loggedOutHome.vue'
 
 export default {
   name: 'Home',
@@ -27,5 +29,10 @@ export default {
 </script>
 
 <style>
+  #home{
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+  }
 
 </style>

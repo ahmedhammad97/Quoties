@@ -1,10 +1,10 @@
 <template>
 
-  <b-navbar toggleable="md" type="light" variant="light">
+  <b-navbar toggleable="md" type="light" variant="light" fixed="top">
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <router-link to="/"><b-navbar-brand title="Home">Quoties</b-navbar-brand></router-link>
+    <router-link to="/"><b-navbar-brand title="Home"><font-awesome-icon icon="quote-left" /> Quoties <font-awesome-icon icon="quote-right" /></b-navbar-brand></router-link>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -74,6 +74,20 @@ export default {
   }
   .form-control-sm{
     border-radius: 15px;
+  }
+  .svg-inline--fa.fa-w-16{
+    width: 12px;
+  }
+  .navbar-light .navbar-brand{
+    color: #757575;
+  }
+  .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
+    color: #424242;
+    transition: color 0.3s ease;
+  }
+
+  .navbar{
+    box-shadow: 0 1px 20px 1px black;
   }
 
 </style>
