@@ -4,7 +4,7 @@
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <router-link to="/"><b-navbar-brand title="Home"><font-awesome-icon icon="quote-left" /> Quoties <font-awesome-icon icon="quote-right" /></b-navbar-brand></router-link>
+    <router-link to="/"><b-navbar-brand title="Home"><i class="fas fa-quote-left"></i> Quoties <i class="fas fa-quote-right"></i></b-navbar-brand></router-link>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   a{
     color: #757575;
   }

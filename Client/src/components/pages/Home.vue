@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   #home{
     margin-top: 50px;
     width: 100%;

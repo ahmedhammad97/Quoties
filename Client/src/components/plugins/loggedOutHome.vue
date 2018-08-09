@@ -1,7 +1,7 @@
 <template>
   <div id="homeOut">
-    <span class="quote" id="quote1"><font-awesome-icon icon="quote-left" /> Whatever you do, do it well <font-awesome-icon icon="quote-right" /></span>
-    <span class="quote" id="quote2"><font-awesome-icon icon="quote-left" /> Everything happens for a reason <font-awesome-icon icon="quote-right" /></span>
+    <span class="quote" id="quote1"><i class="fas fa-quote-left"></i> Whatever you do, do it well <i class="fas fa-quote-right"></i></span>
+    <span class="quote" id="quote2"><i class="fas fa-quote-left"></i> Everything happens for a reason <i class="fas fa-quote-right"></i></span>
 
     <center>
     <h1>Turn your Ahaa moment <font-awesome-icon icon="lightbulb" />, into history record.</h1>
@@ -11,8 +11,8 @@
     </form>
     </center>
 
-    <span class="quote" id="quote3"><font-awesome-icon icon="quote-left" /> Live each day as if it's your last <font-awesome-icon icon="quote-right" /></span>
-    <span class="quote" id="quote4"><font-awesome-icon icon="quote-left" /> Every moment is a fresh beginning <font-awesome-icon icon="quote-right" /></span>
+    <span class="quote" id="quote3"><i class="fas fa-quote-left"></i> Live each day as if it's your last <i class="fas fa-quote-right"></i></span>
+    <span class="quote" id="quote4"><i class="fas fa-quote-left"></i> Every moment is a fresh beginning <i class="fas fa-quote-right"></i></span>
   </div>
 </template>
 
@@ -51,8 +51,10 @@ export default {
   .quote{
     font-size: 25px;
     position: absolute;
-    color: #777;
-    opacity: 0.5;
+    color: white;
+    opacity: 0.2;
+    font-weight: bold;
+    font-style: italic;
   }
 
   #quote1{

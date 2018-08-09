@@ -6,7 +6,6 @@ import Routes from './router/routes'
 import { store } from './store/store'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
-import './assets/fontAwesome.js'
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
