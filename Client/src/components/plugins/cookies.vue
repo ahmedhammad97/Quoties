@@ -31,7 +31,7 @@ export default {
     text-align: center;
     padding: 20px;
     color: white;
-    background-color: #cc0000;
+    background-color: #FF8800;
     font-size: 18px;
     z-index: 1200;
     font-weight: bold;

@@ -8,23 +8,20 @@
     </center>
     </form>
 
-    <div class="socials">
-      <center>
-        <button v-on:click="googleLogin" id="google"><i class="fab fa-google-plus-g"></i> &nbsp&nbspLogin with Google+</button><br /><br /><br />
-        <button v-on:click="facebookLogin" id="facebook"><i class="fab fa-facebook-f"></i> &nbsp&nbspLogin with Facebook</button>
-      </center>
-    </div>
+    <socialAuth></socialAuth>
     <cookiesAlert></cookiesAlert>
   </div>
 </template>
 
 <script>
 import cookiesAlert from '../plugins/cookies.vue'
+import socialAuth from '../plugins/socials.vue'
 
 export default {
   name: 'login',
   components : {
-    cookiesAlert
+    cookiesAlert,
+    socialAuth
   },
   data () {
     return {
@@ -35,12 +32,10 @@ export default {
   methods: {
     login(evn){
       evn.preventDefault()
-    },
-    googleLogin(){
-
-    },
-    facebookLogin(){
-
+      if(this.username == this.$store.state.username){
+        this.$store.state.loggedIn = true;
+        this.$router.push({path: '/'});
+      }
     }
   }
 }
@@ -76,20 +71,5 @@ export default {
   button:hover{
     opacity: 0.8;
     transition: opacity 0.3s ease;
-  }
-  .socials{
-    width: 50%;
-    position: absolute;
-    margin-left: 50%;
-    margin-top: 150px;
-    padding: 50px;
-  }
-  #google{
-    background-color: #dd4b39;
-    color: white;
-  }
-  #facebook{
-    background-color: #3B5998;
-    color: white;
   }
 </style>

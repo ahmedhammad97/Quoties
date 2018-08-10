@@ -25,29 +25,24 @@ export default {
     username : String,
     isLiked : Boolean
   },
-  data(){
-    return{
-      liked : this.isLiked
-    }
-  },
   computed: {
     owner(){
       return this.$store.state.username == this.username;
     },
     likeColor(){
-      return this.liked?"red":"white";
+      return this.isLiked?"red":"white";
     }
   },
   methods : {
     like(){
-      if(!this.liked){
+      if(!this.isLiked){
       //request an addition to the server
       this.likes++;
 
       //recolor
       this.likeColor = "red";
 
-      this.liked = true;
+      this.isLiked = true;
       }
     },
     remove(){

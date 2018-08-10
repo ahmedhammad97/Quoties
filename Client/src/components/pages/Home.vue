@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <loggedInHome v-if="loggedIn"></loggedInHome>
+    <loggedInHome v-if="this.$store.state.loggedIn"></loggedInHome>
     <loggedOutHome v-else></loggedOutHome>
   </div>
 </template>
@@ -15,16 +15,6 @@ export default {
     loggedInHome,
     loggedOutHome
   },
-  data () {
-    return {
-
-    }
-  },
-  computed : {
-    loggedIn(){
-      return this.$store.state.loggedIn;
-    }
-  }
 }
 </script>
 
