@@ -23,8 +23,12 @@
   "homepage": "https://github.com/ahmedhammad97/Quoties#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "mongoose": "^5.2.7"
+    "mongoose": "^5.2.7",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
