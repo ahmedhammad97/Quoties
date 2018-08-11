@@ -2,9 +2,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const passport = require('passport')
+const cookieSession = require('cookie-session')
 const passportSetup = require('./Services/OAuth')
 const routes = require('./Routes/REST')
 const dbConnection = require(__dirname + '/Database/dbConnect')
+const keys = require('./Services/keys.js')
 
 //Main app
 const app = express()
