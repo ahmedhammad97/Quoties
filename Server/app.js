@@ -1,9 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const passport = require('passport');
-const passportSetup = require('./Services/OAuth');
+const passport = require('passport')
+const passportSetup = require('./Services/OAuth')
 const routes = require('./Routes/REST')
+const dbConnection = require(__dirname + '/Database/dbConnect')
 
 //Main app
 const app = express()
@@ -17,6 +18,10 @@ app.use(cors())
 app.listen(process.env.PORT || 8081, ()=>{
   console.log("Listening to port 8081 .. Watch your mouth there.");
 });
+
+
+//Databse Connection
+dbConnection();
 
 
 //REST Apis
@@ -34,5 +39,5 @@ app.use(cookieSession({
   keys: [keys.cookies.encryptionKey],
 
   // Cookie Options
-  maxAge: 5 * 60 * 1000 // 5 mins.
+  maxAge: 60 * 60 * 1000 // 1 hour
 }))
