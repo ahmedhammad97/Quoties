@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     close(){
-      this.$store.state.cookiesAlert = false;
+      this.$store.commit('hideCookiesAlert')
     }
   }
 }

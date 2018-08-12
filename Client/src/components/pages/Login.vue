@@ -33,7 +33,7 @@ export default {
     login(evn){
       evn.preventDefault()
       if(this.username == this.$store.state.username){
-        this.$store.state.loggedIn = true;
+        this.$store.commit('login')
         this.$router.push({path: '/'});
       }
     }

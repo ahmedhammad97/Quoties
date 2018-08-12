@@ -60,7 +60,7 @@ export default {
       this.$router.push({ path: `/search/${this.searchTerm}` })
     },
     logout(){
-      this.$store.state.loggedIn = false;
+      this.$store.commit('logout')
       this.$router.push({path: '/'});
       //remove user data from store
     }

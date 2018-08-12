@@ -6,8 +6,24 @@ const passport = require('passport');
 var jsonParser = bodyParser.json()
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-router.post('/', (req, res)=>{
 
+router.post('/postQuote', jsonParser, (req, res)=>{
+  console.log(req.body);
+  res.end;
+})
+
+router.post('/search', jsonParser, (req, res)=>{
+  console.log(req.body.searchTerm);
+  res.send([/*Array of quotes objects*/])
+})
+
+router.post('/trending', (req, res)=>{
+  res.send([])
+})
+
+router.post('/profile', jsonParser, (req, res)=>{
+  console.log(req.body.username);
+  res.send([])
 })
 
 
@@ -26,7 +42,7 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res)=
 })
 
 router.get('/auth/facebook/redirect', passport.authenticate('facebook'), (req, res)=>{
-  
+
 })
 
 module.exports = router;

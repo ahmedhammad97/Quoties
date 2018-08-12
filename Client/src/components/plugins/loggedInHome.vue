@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+import postQuoteApi from '../../services/postQuote'
 
 export default {
   name: 'loggedInHome',
@@ -31,12 +31,16 @@ export default {
     }
   },
   methods : {
-    postQuote(evt){
+    postQuote : function(evt){
       evt.preventDefault();
       if(this.charsLeft<0){
         alert("Characters limit exceeded!");
       }else{
         //Send to server
+        postQuoteApi.postQuote(this.$store.state.username ,this.quote).then(response=>{
+          //do smth with response;
+        }).catch(err=>{ console.log(err); })
+
         this.quote = "";
       }
     }
@@ -73,6 +77,10 @@ export default {
     text-align: center;
     cursor: pointer;
     margin-left: 8%;
+  }
+  button:hover{
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
   }
   span{
     position: absolute;
