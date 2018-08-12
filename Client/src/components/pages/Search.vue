@@ -1,6 +1,11 @@
 <template>
   <div class="searchPage">
       <center><h2>Search results for <i>{{this.$route.params.term}}</i></h2></center><br /><br />
+      <div id="noResults" v-if="empty">
+        <center>
+          <h4>Sorry, no quotes available for this term :(</h4>
+        </center>
+      </div>
     <ul>
       <li v-for="quote in quotes">
         <quote v-bind="quote"></quote><br />
@@ -20,7 +25,8 @@ export default {
   },
   data(){
     return{
-      quotes : []
+      quotes : [],
+      empty : false
     }
   },
   methods : {
@@ -28,8 +34,8 @@ export default {
       grapQuotesApi.search(this.$route.params.term).then(response=>{
         //Display response
         this.quotes = response.data;
-        //Handle empty array case
-      })
+        if(response.data.length === 0){this.empty = true;}
+      }).catch(err=>{ console.log(err); })
     }
   },
   created(){

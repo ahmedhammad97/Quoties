@@ -3,6 +3,10 @@
     <div class="info">
       <center>
         <h2>{{this.$store.state.fullname}}</h2>
+        <div id="noResults" v-if="empty">
+          <br /><br /><br />
+          <h4>You didn't post any quotes yet.</h4>
+        </div>
       </center>
     </div>
     <br /><br />
@@ -26,13 +30,15 @@ export default {
   },
   data(){
     return{
-      quotes : []
+      quotes : [],
+      empty : false
     }
   },
   methods : {
     getQuotes(){
       profileApi.profile(this.$store.state.username).then(response=>{
         this.quote = response.data;
+        if(response.data.length === 0){this.empty = true;}
       }).catch(err=>{ console.log(err); })
     }
   },
