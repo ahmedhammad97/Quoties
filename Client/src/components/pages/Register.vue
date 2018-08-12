@@ -18,6 +18,7 @@
 <script>
 import cookiesAlert from '../plugins/cookies.vue'
 import socialAuth from '../plugins/socials.vue'
+import authApi from '../../services/Auth'
 
 export default {
   name: 'login',
@@ -36,6 +37,20 @@ export default {
   methods: {
     register(evn){
       evn.preventDefault()
+      authApi.register(this.username, this.password, this.email, this.fullname)
+      .then(response=>{
+        if(response.data.valid){
+          this.$store.commit('login');
+          this.$store.commit('userdata',{
+            username : this.username,
+            fullname : this.fullname,
+            email : this.email
+          });
+          this.$router.push({path: '/'});
+        }else{
+          console.log(response.data.message);
+        }
+      })
     }
   }
 }

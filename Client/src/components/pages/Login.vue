@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import authApi from '../../services/Auth'
 import cookiesAlert from '../plugins/cookies.vue'
 import socialAuth from '../plugins/socials.vue'
 
@@ -32,10 +33,15 @@ export default {
   methods: {
     login(evn){
       evn.preventDefault()
-      if(this.username == this.$store.state.username){
-        this.$store.commit('login')
-        this.$router.push({path: '/'});
-      }
+      authApi.login(this.username, this.password).then(response=>{
+        if(response.data.access){
+          this.$store.commit('login');
+          this.$store.commit('userdata',data.info);
+          this.$router.push({path: '/'});
+        }else{
+          alert('Invalid login information');
+        }
+      }).catch(err=>{ console.log(err); })
     }
   }
 }

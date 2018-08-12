@@ -6,6 +6,9 @@ const passport = require('passport');
 var jsonParser = bodyParser.json()
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+router.post('/login', jsonParser, /*controllerFunction*/)
+
+router.post('/register', jsonParser, /*controllerFunction*/)
 
 router.post('/postQuote', jsonParser, (req, res)=>{
   console.log(req.body);

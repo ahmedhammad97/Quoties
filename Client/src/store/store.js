@@ -22,10 +22,10 @@ export const store = new Vuex.Store({
       hideCookiesAlert(state){
         state.cookiesAlert = false;
       },
-      userdata(state, username, fullname, email){
-        state.username = username;
-        state.fullname = fullname;
-        state.email = email;
+      userdata(state, info){
+        state.username = info.username;
+        state.fullname = info.fullname;
+        state.email = info.email;
       }
     }
 })

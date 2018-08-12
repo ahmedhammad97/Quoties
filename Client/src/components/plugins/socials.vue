@@ -8,15 +8,31 @@
 </template>
 
 <script>
+import authApi from "../../services/Auth"
 
 export default {
   name: 'socials',
   methods: {
     googleRegister(){
-
+      authApi.googleAuth().then(response=>{
+        this.loginProcedure(response.data)
+      }).catch(err=>{ console.log(err); })
     },
-    facebookRegister(){
 
+    facebookRegister(){
+      authApi.facebookAuth().then(response=>{
+        this.loginProcedure(response.data)
+      }).catch(err=>{ console.log(err); })
+    },
+
+    loginProcedure(data){
+      if(data.access){
+        this.$store.commit('login');
+        this.$store.commit('userdata',info);
+        this.$router.push({path: '/'});
+      }else{
+        alert(data.message);
+      }
     }
   }
 }
