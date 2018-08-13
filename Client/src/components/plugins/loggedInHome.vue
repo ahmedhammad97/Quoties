@@ -38,7 +38,11 @@ export default {
       }else{
         //Send to server
         postQuoteApi.postQuote(this.$store.state.username ,this.quote).then(response=>{
-          //do smth with response;
+          if(response.data.valid){
+            alert('Posted Successfully');
+          }else{
+            alert(response.data.message);
+          }
         }).catch(err=>{ console.log(err); })
 
         this.quote = "";

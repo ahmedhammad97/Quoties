@@ -26,7 +26,7 @@ export default {
   methods : {
     getPosts(){
       trendingApi.trending().then(response=>{
-        quotes = response.data;
+        this.quotes = response.data;
       }).catch(err=>{ console.log(err); })
     }
   },

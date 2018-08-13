@@ -32,7 +32,6 @@ export default {
   methods : {
     doSearch(){
       grapQuotesApi.search(this.$route.params.term).then(response=>{
-        //Display response
         this.quotes = response.data;
         if(response.data.length === 0){this.empty = true;}
       }).catch(err=>{ console.log(err); })

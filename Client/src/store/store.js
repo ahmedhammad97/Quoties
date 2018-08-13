@@ -26,6 +26,9 @@ export const store = new Vuex.Store({
         state.username = info.username;
         state.fullname = info.fullname;
         state.email = info.email;
+      },
+      clearUser(state){
+        username = email = fullname = "";
       }
     }
 })

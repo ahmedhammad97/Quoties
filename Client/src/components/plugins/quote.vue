@@ -1,5 +1,5 @@
 <template>
-  <div class="quote">
+  <div class="quote" v-show="!deleted">
       <i class="fas fa-quote-left"></i>&nbsp&nbsp
           <span>{{body}}</span>
        &nbsp&nbsp<i class="fas fa-quote-right"></i><br /><br />
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import editQuoteApi from "../../services/editQuotes"
 
 export default {
   name: 'quote',
@@ -23,7 +24,8 @@ export default {
     likes : Number,
     author : String,
     username : String,
-    isLiked : Boolean
+    isLiked : Boolean,
+    deleted : Boolean
   },
   computed: {
     owner(){
@@ -36,17 +38,18 @@ export default {
   methods : {
     like(){
       if(!this.isLiked){
-      //request an addition to the server
-      this.likes++;
-
-      //recolor
-      this.likeColor = "red";
-
-      this.isLiked = true;
+        editQuotesApi.likeQuote(this.username, this.quoteId).then(response=>{
+          this.likeColor = "red";
+          this.isLiked = true;
+          this.likes++;
+        }).catch(err=>{ console.log(err); })
       }
     },
     remove(){
-
+      //May add Prompt first
+      editQuoteApi.deleteQuote(this.quoteId).then(response=>{
+        this.deleted = true;
+      }).catch(err=>{ console.log(err); })
     },
     copy(){
       this.$copyText(this.body).then(function (e) {
