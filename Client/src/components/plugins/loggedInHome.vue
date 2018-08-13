@@ -37,7 +37,7 @@ export default {
         alert("Characters limit exceeded!");
       }else{
         //Send to server
-        postQuoteApi.postQuote(this.$store.state.username ,this.quote).then(response=>{
+        postQuoteApi.postQuote(this.quote, this.$store.state.username, this.$store.state.fullname).then(response=>{
           if(response.data.valid){
             alert('Posted Successfully');
           }else{

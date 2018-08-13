@@ -20,7 +20,8 @@ module.exports = {
               info : {
                 username : req.body.username,
                 email : result.email,
-                fullname : result.fullname
+                fullname : result.fullname,
+                id : result._id
               }
             })
 
@@ -57,15 +58,15 @@ module.exports = {
                 quotesId : []
               })
               tempUser.save()
+
+              //Send valid response
+              res.send({valid : true, id : tempUser._id})
             })
 
-            //Send valid response
-            res.send({valid : true})
-
           }
-        })
+        }).catch(err=>{console.log(err);})
       }
-    })
+    }).catch(err=>{console.log(err);})
   },
 
 

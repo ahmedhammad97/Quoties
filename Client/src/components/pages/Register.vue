@@ -44,7 +44,8 @@ export default {
           this.$store.commit('userdata',{
             username : this.username,
             fullname : this.fullname,
-            email : this.email
+            email : this.email,
+            id : response.data.id
           });
           this.$router.push({path: '/'});
         }else{

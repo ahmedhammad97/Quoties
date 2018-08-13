@@ -1,10 +1,11 @@
 import Api from './Api'
 
 export default {
-  postQuote(username, quoteBody){
+  postQuote(quoteBody, username, fullname){
     return Api().post('postQuote', {
       username : username,
-      quoteBody : quoteBody
+      quoteBody : quoteBody,
+      fullname : fullname
     });
   }
 }

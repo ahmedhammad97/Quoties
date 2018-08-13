@@ -8,9 +8,10 @@ export const store = new Vuex.Store({
     state: {
       loggedIn : true,
       cookiesAlert : true,
-      username : "ahmedhammad97",
-      email : "hammad97official@gmail.com",
-      fullname : "Ahmed Hammad"
+      username : "",
+      email : "",
+      fullname : "",
+      id : ""
     },
     mutations : {
       login(state){
@@ -26,6 +27,7 @@ export const store = new Vuex.Store({
         state.username = info.username;
         state.fullname = info.fullname;
         state.email = info.email;
+        state.id = info.id;
       },
       clearUser(state){
         username = email = fullname = "";
