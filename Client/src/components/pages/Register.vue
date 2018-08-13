@@ -4,7 +4,7 @@
       <center>
       <input type="text" name="fullname" placeholder="Full Name" v-model="fullname" required><br /><br />
       <input type="text" name="username" placeholder="Username" v-model="username" required><br /><br />
-      <input type="email" name="email" placeholder="Email" v-model="username" required><br /><br />
+      <input type="email" name="email" placeholder="Email" v-model="email" required><br /><br />
       <input type="password" name="password" placeholder="Password" v-model="password" required><br /><br /><br />
       <button type="submit" name="button">Register</button>
     </center>
@@ -48,7 +48,7 @@ export default {
           });
           this.$router.push({path: '/'});
         }else{
-          console.log(response.data.message);
+          alert(response.data.message);
         }
       })
     }

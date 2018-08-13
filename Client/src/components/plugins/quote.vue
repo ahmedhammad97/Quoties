@@ -19,13 +19,17 @@ import editQuoteApi from "../../services/editQuotes"
 
 export default {
   name: 'quote',
+  data(){
+    return{
+      deleted : false
+    }
+  },
   props : {
     body : String,
     likes : Number,
     author : String,
     username : String,
-    isLiked : Boolean,
-    deleted : Boolean
+    isLiked : Boolean
   },
   computed: {
     owner(){

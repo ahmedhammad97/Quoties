@@ -36,10 +36,10 @@ export default {
       authApi.login(this.username, this.password).then(response=>{
         if(response.data.access){
           this.$store.commit('login');
-          this.$store.commit('userdata',data.info);
+          this.$store.commit('userdata',response.data.info);
           this.$router.push({path: '/'});
         }else{
-          alert('Invalid login information');
+          alert(response.data.message);
         }
       }).catch(err=>{ console.log(err); })
     }
