@@ -19,7 +19,7 @@ router.post('/postQuote', jsonParser, postController.postQuote)
 
 router.post('/search', jsonParser, fetchController.fetchSearch)
 
-router.post('/trending', fetchController.fetchTrending)
+router.post('/trending', jsonParser, fetchController.fetchTrending)
 
 router.post('/profile', jsonParser, fetchController.fetchProfile)
 

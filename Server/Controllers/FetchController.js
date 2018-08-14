@@ -24,7 +24,12 @@ module.exports = {
   },
 
   fetchTrending(req, res){
+    Quote.find({}).limit(10).sort({likes : -1}).then(result=>{
+      let resultArray = generateQuotesArray(result, req.body.id);
 
+      //response
+      res.send(resultArray);
+    })
   }
 
 }

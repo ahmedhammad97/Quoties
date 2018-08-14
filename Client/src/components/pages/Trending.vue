@@ -25,7 +25,7 @@ export default {
   },
   methods : {
     getPosts(){
-      trendingApi.trending().then(response=>{
+      trendingApi.trending(this.$store.state.id).then(response=>{
         this.quotes = response.data;
       }).catch(err=>{ console.log(err); })
     }

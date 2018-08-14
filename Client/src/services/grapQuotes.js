@@ -4,8 +4,8 @@ export default {
   search(id, searchRegex){
     return Api().post('search', {searchRegex : searchRegex, id : id});
   },
-  trending(){
-    return Api().post('trending');
+  trending(id){
+    return Api().post('trending', {id : id});
   },
   profile(id, username){
     return Api().post('profile', {id : id, username : username});
