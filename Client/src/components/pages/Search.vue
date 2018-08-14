@@ -1,6 +1,6 @@
 <template>
   <div class="searchPage">
-      <center><h2>Search results for <i>{{this.$route.params.term}}</i></h2></center><br /><br />
+      <center><h2>Search results for <i>{{term}}</i></h2></center><br /><br />
       <div id="noResults" v-if="empty">
         <center>
           <h4>Sorry, no quotes available for this term :(</h4>
@@ -29,18 +29,41 @@ export default {
       empty : false
     }
   },
+
+  computed : {
+    term(){
+      return this.$route.params.term;
+    }
+  },
+
+  watch : {
+    term : function (x,y){
+      console.log("Changed!");
+      this.doSearch()
+    }
+  },
+
   methods : {
+    convertToRegex(term){
+      let arr = term.trim().split(" ");
+      let regex = "";
+      arr.forEach(word=>{
+        regex = regex.concat("|", word)
+      })
+      return regex.substr(1);
+    },
+
     doSearch(){
-      grapQuotesApi.search(this.$route.params.term).then(response=>{
+      grapQuotesApi.search(this.$store.state.id, this.convertToRegex(this.$route.params.term)).then(response=>{
         this.quotes = response.data;
         if(response.data.length === 0){this.empty = true;}
       }).catch(err=>{ console.log(err); })
     }
   },
-  created(){
+
+  beforeMount(){
     this.doSearch()
   }
-
 }
 </script>
 

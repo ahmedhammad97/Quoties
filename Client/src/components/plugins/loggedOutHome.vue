@@ -27,7 +27,9 @@ export default {
   },
   methods: {
     search(){
-      this.$router.push({ path: `/search/${this.searchTerm}` })
+      if(this.searchTerm.trim() == ""){alert("Empty search!"); return;}
+      this.$router.push({ path: `/search/${this.searchTerm}` });
+      this.searchTerm = "";
     }
   }
 }

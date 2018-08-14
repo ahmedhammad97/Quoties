@@ -1,8 +1,8 @@
 import Api from './Api'
 
 export default {
-  search(searchTerm){
-    return Api().post('search', {searchTerm : searchTerm});
+  search(id, searchRegex){
+    return Api().post('search', {searchRegex : searchRegex, id : id});
   },
   trending(){
     return Api().post('trending');
