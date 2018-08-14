@@ -19,7 +19,9 @@ module.exports = {
   },
 
   deleteController(req, res){
-
+    Quote.findByIdAndRemove(req.params.quoteId).then(()=>{
+      res.end();
+    }).catch(err=>{console.log(err);})
   }
 
 }

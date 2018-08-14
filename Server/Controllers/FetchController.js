@@ -5,7 +5,6 @@ const User = require('../Database/models/User')
 module.exports = {
 
   fetchSearch(req, res){
-    console.log(req.body.searchRegex);
     Quote.find({body : new RegExp(req.body.searchRegex, 'gi')}).limit(20).then(results=>{
       let resultArray = generateQuotesArray(results, req.body.id);
       res.send(resultArray);
