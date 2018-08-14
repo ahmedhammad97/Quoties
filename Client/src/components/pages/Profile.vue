@@ -36,8 +36,8 @@ export default {
   },
   methods : {
     getQuotes(){
-      profileApi.profile(this.$store.state.username).then(response=>{
-        this.quote = response.data;
+      profileApi.profile(this.$store.state.id, this.$store.state.username).then(response=>{
+        this.quotes = response.data;
         if(response.data.length === 0){this.empty = true;}
       }).catch(err=>{ console.log(err); })
     }

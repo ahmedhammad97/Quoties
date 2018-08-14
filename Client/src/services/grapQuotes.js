@@ -7,7 +7,7 @@ export default {
   trending(){
     return Api().post('trending');
   },
-  profile(username){
-    return Api().post('profile', {username : username});
+  profile(id, username){
+    return Api().post('profile', {id : id, username : username});
   }
 }
