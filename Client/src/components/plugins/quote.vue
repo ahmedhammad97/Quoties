@@ -5,7 +5,7 @@
        &nbsp&nbsp<i class="fas fa-quote-right"></i><br /><br />
 
        <span class="toolbar">
-         {{likes}} <i class="fas fa-heart" title="like" v-bind:style="{color : likeColor}" v-on:click="like">&nbsp&nbsp</i>
+         {{likesCount}} <i class="fas fa-heart" title="like" v-if="this.$store.state.loggedIn" v-bind:style="{color : likeColor}" v-on:click="like">&nbsp&nbsp</i>
          <i class="fas fa-trash" title="remove" v-if="owner" v-on:click="remove">&nbsp&nbsp</i>
          <i class="fas fa-copy" title="copy" v-on:click="copy"></i>
        </span>
@@ -19,33 +19,45 @@ import editQuoteApi from "../../services/editQuotes"
 
 export default {
   name: 'quote',
-  data(){
-    return{
-      deleted : false
-    }
-  },
+
   props : {
     body : String,
     likes : Number,
     author : String,
     username : String,
-    isLiked : Boolean
+    isLiked : Boolean,
+    quoteId : String
   },
+
+  data(){
+    return{
+      deleted : false,
+      dataLikes : this.likes,
+      dataisLiked : this.isLiked
+    }
+  },
+
   computed: {
     owner(){
       return this.$store.state.username == this.username;
     },
-    likeColor(){
-      return this.isLiked?"red":"white";
+    likesCount: {
+      get(){return this.dataLikes;},
+      set(val){this.dataLikes = this.likes+1;}
+    },
+    likeColor: {
+      get(){return this.dataisLiked?"red":"white";},
+      set(val){this.dataisLiked = true;}
     }
   },
   methods : {
     like(){
       if(!this.isLiked){
-        editQuotesApi.likeQuote(this.username, this.quoteId).then(response=>{
+        editQuoteApi.likeQuote(this.$store.state.id, this.quoteId).then(response=>{
+          if(response.error){alert("Like failed.. Sorry");}
+          this.likesCount = 1;
           this.likeColor = "red";
-          this.isLiked = true;
-          this.likes++;
+
         }).catch(err=>{ console.log(err); })
       }
     },

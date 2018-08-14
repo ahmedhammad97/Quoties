@@ -1,9 +1,9 @@
 import Api from './Api'
 
 export default {
-  likeQuote(username, quoteId){
+  likeQuote(id, quoteId){
     return Api().post('like', {
-      username : username,
+      id : id,
       quoteId : quoteId
     });
   },

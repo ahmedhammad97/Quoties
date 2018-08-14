@@ -45,7 +45,8 @@ var generateQuotesArray = function(results, id){
       likes : record.likes,
       author : record.author,
       username : record.username,
-      isLiked : isLiked(id, record)
+      isLiked : isLiked(id, record),
+      quoteId : record._id
     })
   })
 
