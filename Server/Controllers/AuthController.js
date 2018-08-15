@@ -73,8 +73,24 @@ module.exports = {
     }).catch(err=>{console.log(err);})
   },
 
+  refreshController(req, res){
+    User.findById(req.body.id).then(result=>{
+      if(result){
+        let info = {
+          username : result.username,
+          email : result.email,
+          fullname : result.fullname,
+          id : result._id
+        };
+        res.send({valid : true , info : info});
+      }else{
+        res.send({valid : false});
+      }
+    }).catch(err=>{console.log(err);})
+  },
+
   googleController(req, res){
-    //Send userdata
+    console.log(req.user)
   },
 
   facebookController(req, res){

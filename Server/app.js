@@ -12,7 +12,13 @@ const app = express()
 
 
 //Cors Api allows front-end port to hit this server
-app.use(cors())
+app.use(cors({
+  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'exposedHeaders': ['sessionId'],
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}))
 
 
 //Setting server port

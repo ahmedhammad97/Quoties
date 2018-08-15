@@ -17,7 +17,10 @@ export default {
     })
   },
 
-  
+  refresh(id){
+    return Api().post('refresh',{id : id})
+  },
+
   facebookAuth(){
     return Api().get('auth/facebook')
   },

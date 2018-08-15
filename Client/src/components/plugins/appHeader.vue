@@ -63,7 +63,7 @@ export default {
       this.searchTerm = "";
     },
     logout(){
-      document.cookie = 'state=loggedin;' + 'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = 'state=' + this.$store.state.id + ';' + 'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       this.$store.commit('checkLoginState');
       this.$router.push({path: '/'});
     }

@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import authApi from '../../services/Auth'
 import postQuoteApi from '../../services/postQuote'
 
 export default {
@@ -48,6 +49,17 @@ export default {
         this.quote = "";
       }
     }
+  },
+
+  created(){
+    authApi.refresh(document.cookie.slice(6,30)).then(response=>{
+      if(response.data.valid){
+        this.$store.commit('userdata',response.data.info);
+      }else{
+        alert('Unexpected Error!');
+      }
+
+    }).catch(err=>console.log(err))
   }
 }
 </script>

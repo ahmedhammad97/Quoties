@@ -15,6 +15,8 @@ router.post('/login', jsonParser, authController.loginController)
 
 router.post('/register', jsonParser, authController.registerController)
 
+router.post('/refresh', jsonParser, authController.refreshController)
+
 router.post('/postQuote', jsonParser, postController.postQuote)
 
 router.post('/search', jsonParser, fetchController.fetchSearch)
