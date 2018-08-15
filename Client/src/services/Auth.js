@@ -17,6 +17,7 @@ export default {
     })
   },
 
+  
   facebookAuth(){
     return Api().get('auth/facebook')
   },

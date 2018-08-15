@@ -35,7 +35,8 @@ export default {
       evn.preventDefault()
       authApi.login(this.username, this.password).then(response=>{
         if(response.data.access){
-          this.$store.commit('login');
+          document.cookie = 'state=loggedin';
+          this.$store.commit('checkLoginState');
           this.$store.commit('userdata',response.data.info);
           this.$router.push({path: '/'});
         }else{

@@ -5,7 +5,7 @@ const User = require('../Database/models/User')
 module.exports = {
 
   fetchSearch(req, res){
-    Quote.find({body : new RegExp(req.body.searchRegex, 'gi')}).limit(20).then(results=>{
+    Quote.find({body : new RegExp(req.body.searchRegex, 'gi')}).limit(20).sort({likes : -1}).then(results=>{
       let resultArray = generateQuotesArray(results, req.body.id);
       res.send(resultArray);
 
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   fetchProfile(req, res){
-    Quote.find({username : req.body.username}).limit(50).then(response=>{
+    Quote.find({username : req.body.username}).limit(50).sort({likes : -1}).then(response=>{
 
       let resultArray = generateQuotesArray(response, req.body.id);
 

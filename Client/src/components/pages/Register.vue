@@ -40,7 +40,8 @@ export default {
       authApi.register(this.username, this.password, this.email, this.fullname)
       .then(response=>{
         if(response.data.valid){
-          this.$store.commit('login');
+          document.cookie = 'state=loggedin';
+          this.$store.commit('checkLoginState');
           this.$store.commit('userdata',{
             username : this.username,
             fullname : this.fullname,

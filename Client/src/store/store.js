@@ -5,20 +5,19 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     strict: true,
+
     state: {
-      loggedIn : false,
+      loggedIn : document.cookie,
       cookiesAlert : true,
       username : "",
       email : "",
       fullname : "",
       id : ""
     },
+
     mutations : {
-      login(state){
-        state.loggedIn = true;
-      },
-      logout(state){
-        state.loggedIn = false;
+      checkLoginState(state){
+        state.loggedIn = document.cookie?true:false;
       },
       hideCookiesAlert(state){
         state.cookiesAlert = false;

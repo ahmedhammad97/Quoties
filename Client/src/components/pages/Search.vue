@@ -38,7 +38,6 @@ export default {
 
   watch : {
     term : function (x,y){
-      console.log("Changed!");
       this.doSearch()
     }
   },

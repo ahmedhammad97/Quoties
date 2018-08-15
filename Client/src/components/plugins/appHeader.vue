@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import authApi from '../../services/Auth'
 
 export default {
   name: 'appHeader',
@@ -62,9 +63,9 @@ export default {
       this.searchTerm = "";
     },
     logout(){
-      this.$store.commit('logout')
+      document.cookie = 'state=loggedin;' + 'expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      this.$store.commit('checkLoginState');
       this.$router.push({path: '/'});
-      //remove user data from store
     }
   }
 }

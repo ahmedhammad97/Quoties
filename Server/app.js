@@ -25,14 +25,8 @@ app.listen(process.env.PORT || 8081, ()=>{
 dbConnection();
 
 
-//REST Apis
-app.use(routes)
-
-
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-
+// trust first proxy
+app.set('trust proxy', 1)
 
 //Cookies
 app.use(cookieSession({
@@ -42,3 +36,12 @@ app.use(cookieSession({
   // Cookie Options
   maxAge: 60 * 60 * 1000 // 1 hour
 }))
+
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//REST Apis
+app.use(routes)

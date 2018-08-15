@@ -15,14 +15,17 @@ module.exports = {
           if(err){console.log(err);}
           if(rep){ //Password match
 
+            //Info
+            let info = {
+              username : req.body.username,
+              email : result.email,
+              fullname : result.fullname,
+              id : result._id
+            }
+
             res.send({
               access : true,
-              info : {
-                username : req.body.username,
-                email : result.email,
-                fullname : result.fullname,
-                id : result._id
-              }
+              info : info
             })
 
           }else{ // Password didn't match
@@ -59,6 +62,7 @@ module.exports = {
               })
               tempUser.save()
 
+
               //Send valid response
               res.send({valid : true, id : tempUser._id})
             })
@@ -68,8 +72,6 @@ module.exports = {
       }
     }).catch(err=>{console.log(err);})
   },
-
-
 
   googleController(req, res){
     //Send userdata
