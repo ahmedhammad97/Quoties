@@ -13,7 +13,7 @@ module.exports = {
   },
 
   fetchProfile(req, res){
-    Quote.find({username : req.body.username}).limit(50).sort({likes : -1}).then(response=>{
+    Quote.find({username : req.body.visitorUsename}).limit(50).sort({likes : -1}).then(response=>{
 
       let resultArray = generateQuotesArray(response, req.body.id);
 

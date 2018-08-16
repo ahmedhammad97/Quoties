@@ -36,7 +36,7 @@ export default {
   },
   methods : {
     getQuotes(){
-      profileApi.profile(this.$store.state.id, this.$store.state.username).then(response=>{
+      profileApi.profile(this.$store.state.id, this.$route.params.username).then(response=>{
         this.quotes = response.data;
         if(response.data.length === 0){this.empty = true;}
       }).catch(err=>{ console.log(err); })
@@ -44,6 +44,7 @@ export default {
   },
   created(){
     this.getQuotes()
+    console.log(this.$route.params.username);
   }
 
 }

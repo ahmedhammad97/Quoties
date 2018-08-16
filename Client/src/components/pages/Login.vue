@@ -2,10 +2,10 @@
   <div class="login">
     <form v-on:submit="login">
       <center>
-      <input type="text" name="username" placeholder="Username" v-model="username" required><br /><br />
-      <input type="password" name="password" placeholder="Password" v-model="password" required><br /><br /><br />
-      <button type="submit" name="button">Login</button>
-    </center>
+        <input type="text" name="username" placeholder="Username" v-model="username" required><br /><br />
+        <input type="password" name="password" placeholder="Password" v-model="password" required><br /><br /><br />
+        <button type="submit" name="button">Login</button>
+      </center>
     </form>
 
     <socialAuth></socialAuth>
