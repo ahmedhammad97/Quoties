@@ -30,13 +30,13 @@ Loggedout home page
 ![Screenshot1](https://github.com/ahmedhammad97/Quoties/blob/master/images/1.png)
 
 Search page
-![Screenshot2](https://github.com/ahmedhammad97/Quoties/blob/master/images/1.png)
+![Screenshot2](https://github.com/ahmedhammad97/Quoties/blob/master/images/2.png)
 
 Login page
-![Screenshot3](https://github.com/ahmedhammad97/Quoties/blob/master/images/1.png)
+![Screenshot3](https://github.com/ahmedhammad97/Quoties/blob/master/images/3.png)
 
 Loggedin home page
-![Screenshot4](https://github.com/ahmedhammad97/Quoties/blob/master/images/1.png)
+![Screenshot4](https://github.com/ahmedhammad97/Quoties/blob/master/images/4.png)
 
 Profile page
-![Screenshot5](https://github.com/ahmedhammad97/Quoties/blob/master/images/1.png)
+![Screenshot5](https://github.com/ahmedhammad97/Quoties/blob/master/images/5.png)
