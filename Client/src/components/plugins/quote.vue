@@ -96,6 +96,8 @@ export default {
   }
   span{
     font-size: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   em{
     float: right;

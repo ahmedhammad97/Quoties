@@ -4,6 +4,7 @@ import Search from '../components/pages/Search.vue'
 import Login from '../components/pages/Login.vue'
 import Register from '../components/pages/Register.vue'
 import Profile from '../components/pages/Profile.vue'
+import notFound from '../components/pages/NotFound.vue'
 
 export default [
   {
@@ -29,6 +30,10 @@ export default [
   {
     path: '/profile/:username',
     component: Profile
+  },
+  {
+    path : '*',
+    component : notFound
   }
 
 ]
