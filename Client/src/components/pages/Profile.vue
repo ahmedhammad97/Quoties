@@ -44,7 +44,6 @@ export default {
   },
   created(){
     this.getQuotes()
-    console.log(this.$route.params.username);
   }
 
 }

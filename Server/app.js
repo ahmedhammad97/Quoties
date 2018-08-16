@@ -2,10 +2,13 @@ const express = require('express')
 const cors = require('cors')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
+const cookieParser = require('cookie-parser')
 const passportSetup = require('./Services/OAuth')
 const routes = require('./Routes/REST')
 const dbConnection = require(__dirname + '/Database/dbConnect')
-const keys = require('./Services/keys.js')
+const keys = require('./Services/keys')
+
+//const fillDatabase = require('./Services/fillDatabase') //Only once
 
 //Main app
 const app = express()
@@ -23,6 +26,10 @@ app.listen(process.env.PORT || 8081, ()=>{
 
 //Databse Connection
 dbConnection();
+
+
+//Parse cookies in req
+app.use(cookieParser())
 
 
 //Cookies

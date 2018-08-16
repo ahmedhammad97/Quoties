@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 function connect(){
-  mongoose.connect("mongodb://localhost:27017/quotiesTest", { useNewUrlParser: true });
+  mongoose.connect("mongodb://localhost:27017/quoties", { useNewUrlParser: true });
 
   mongoose.Promise = global.Promise;
 

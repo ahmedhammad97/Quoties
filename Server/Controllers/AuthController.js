@@ -90,11 +90,11 @@ module.exports = {
   },
 
   googleController(req, res){
-    console.log(req.user)
+    res.send(user) // Not full functional yet
   },
 
   facebookController(req, res){
-    //send userdata
+    res.send(user) // Not full functional yet
   }
 
 }

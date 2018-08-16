@@ -46,7 +46,7 @@ export default {
             username : this.username,
             fullname : this.fullname,
             email : this.email,
-            id : response.data.id
+            id : response.data.info.id
           });
           this.$router.push({path: '/'});
         }else{
