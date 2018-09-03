@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const passport = require('passport')
-//const cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 const passportSetup = require('./Services/OAuth')
 const routes = require('./Routes/REST')
@@ -36,13 +36,13 @@ app.use(cookieParser());
 
 
 //Cookies
-/*app.use(cookieSession({
+app.use(cookieSession({
   name: 'session',
   keys: [keys.cookies.encryptionKey],
 
   // Cookie Options
   maxAge: 60 * 60 * 1000 // 1 hour
-}))*/
+}))
 
 
 // initialize passport

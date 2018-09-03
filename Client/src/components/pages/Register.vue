@@ -40,13 +40,13 @@ export default {
       authApi.register(this.username, this.password, this.email, this.fullname)
       .then(response=>{
         if(response.data.valid){
-          document.cookie = `state=${response.data.info.id}; path=/`;
+          document.cookie = `state=${response.data.id}; path=/`;
           this.$store.commit('checkLoginState');
           this.$store.commit('userdata',{
             username : this.username,
             fullname : this.fullname,
             email : this.email,
-            id : response.data.info.id
+            id : response.data.id
           });
           this.$router.push({path: '/'});
         }else{
