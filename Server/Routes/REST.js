@@ -17,17 +17,17 @@ router.post('/register', jsonParser, authController.registerController)
 
 router.post('/refresh', jsonParser, authController.refreshController)
 
-router.post('/postQuote', jsonParser, postController.postQuote)
+router.post('/postQuote', jsonParser, authController.verifyCookie, postController.postQuote)
 
 router.post('/search', jsonParser, fetchController.fetchSearch)
 
 router.post('/trending', jsonParser, fetchController.fetchTrending)
 
-router.post('/profile', jsonParser, fetchController.fetchProfile)
+router.post('/profile', jsonParser, authController.verifyCookie, fetchController.fetchProfile)
 
-router.post('/like', jsonParser, editController.likeController)
+router.post('/like', jsonParser, authController.verifyCookie, editController.likeController)
 
-router.delete('/deleteQuote/:quoteId', urlencodedParser, editController.deleteController)
+router.delete('/deleteQuote/:quoteId', urlencodedParser, authController.verifyCookie, editController.deleteController)
 
 router.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
 

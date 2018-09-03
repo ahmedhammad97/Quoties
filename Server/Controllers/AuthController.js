@@ -89,6 +89,15 @@ module.exports = {
     }).catch(err=>{console.log(err);})
   },
 
+  verifyCookie(req, res, next){
+    User.findById(req.cookies.state).then(result=>{
+      if(result){next();}
+      else{
+        res.send("Error!");
+      }
+    });
+  },
+
   googleController(req, res){
     res.send(user) // Not full functional yet
   },

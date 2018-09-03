@@ -35,7 +35,7 @@ export default {
       evn.preventDefault()
       authApi.login(this.username, this.password).then(response=>{
         if(response.data.access){
-          document.cookie = 'state='+response.data.info.id;
+          document.cookie = `state=${response.data.info.id}; path=/`;
           this.$store.commit('checkLoginState');
           this.$store.commit('userdata',response.data.info);
           this.$router.push({path: '/'});

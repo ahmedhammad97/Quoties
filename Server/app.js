@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const passport = require('passport')
-const cookieSession = require('cookie-session')
+//const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 const passportSetup = require('./Services/OAuth')
 const routes = require('./Routes/REST')
@@ -15,7 +15,10 @@ const app = express()
 
 
 //Cors Api allows front-end port to hit this server
-app.use(cors())
+app.use(cors({
+  origin : "http://localhost:8080",
+  credentials : true
+}))
 
 
 //Setting server port
@@ -29,17 +32,17 @@ dbConnection();
 
 
 //Parse cookies in req
-app.use(cookieParser())
+app.use(cookieParser());
 
 
 //Cookies
-app.use(cookieSession({
+/*app.use(cookieSession({
   name: 'session',
   keys: [keys.cookies.encryptionKey],
 
   // Cookie Options
   maxAge: 60 * 60 * 1000 // 1 hour
-}))
+}))*/
 
 
 // initialize passport

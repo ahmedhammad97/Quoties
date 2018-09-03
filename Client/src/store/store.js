@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
         state.id = info.id;
       },
       clearUser(state){
-        username = email = fullname = "";
+        username = email = fullname = id = "";
       }
     }
 })
