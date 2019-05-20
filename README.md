@@ -1,6 +1,4 @@
 # Quoties
-**Social network website, for users to view famous quotes, view other users quotes, or post their own.**
-
 
 ## Features: 
 - Password-hashed register/login process.
